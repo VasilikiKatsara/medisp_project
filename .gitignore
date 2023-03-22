@@ -1,2 +1,2 @@
 .idea
-db.sqlite3
+db.sqlitpip install pre-commit e3
