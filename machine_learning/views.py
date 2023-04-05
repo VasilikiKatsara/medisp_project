@@ -4,7 +4,14 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from .serializers import UserSerializer, GroupSerializer
+
+from .models import Label, HistImage
+from .serializers import (
+    UserSerializer,
+    GroupSerializer,
+    LabelSerializer,
+    HistImageSerializer,
+)
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -25,3 +32,13 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+
+class LabelModelViewset(viewsets.ModelViewSet):
+    queryset = Label.objects.all()
+    serializer_class = LabelSerializer
+
+
+class HistImageModelViewset(viewsets.ModelViewSet):
+    queryset = HistImage.objects.all()
+    serializer_class = HistImageSerializer
